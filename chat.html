@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>智能对话服务</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -33,7 +39,14 @@
         }
         
         #chat-container {
-            flex: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* 移动端适配 */
@@ -60,17 +73,16 @@
         const config = {
             business: {
                 title: '业务咨询服务',
-                icon: 'https://pic.imgdb.cn/item/673f5ebad29ded1a8c3e7847.jpg', // 替换为实际的图标URL
-                themeColor: '#3498db'
+                themeColor: '#3498db',
+                avatar: 'https://pic.imgdb.cn/item/673f5ebad29ded1a8c3e7847.jpg'
             },
             product: {
                 title: '产品方案咨询',
-                icon: 'https://pic.imgdb.cn/item/673fd555d29ded1a8c7d159f.jpg', // 替换为实际的图标URL
-                themeColor: '#2ecc71'
+                themeColor: '#2ecc71',
+                avatar: 'https://pic.imgdb.cn/item/673fd555d29ded1a8c7d159f.jpg'
             }
         };
 
-        // 判断当前是哪个机器人
         const isBusinessBot = botId === '7439142592794673179';
         const currentConfig = isBusinessBot ? config.business : config.product;
 
@@ -79,56 +91,46 @@
             config: {
                 bot_id: botId,
                 visible: true,
+                showEntrance: false, // 不显示悬浮球
             },
             componentProps: {
                 title: currentConfig.title,
-                icon: currentConfig.icon,
-                position: 'right', // 对话框位置：right 或 left
-                distance: {
-                    right: '20px',  // 距离右侧距离
-                    bottom: '20px'  // 距离底部距离
-                },
-                width: '380px',     // 对话框宽度
-                height: '600px',    // 对话框高度
                 themeColor: currentConfig.themeColor,
-                placeholder: '请输入您的问题...', // 输入框占位符
-                avatar: currentConfig.icon,    // 机器人头像
+                placeholder: '请输入您的问题...',
+                width: isMobile() ? '100%' : '90%',
+                height: isMobile() ? '100%' : '90%',
+                avatar: currentConfig.avatar,
                 containerStyle: {
-                    // 自定义容器样式
-                    borderRadius: '12px',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                    borderRadius: isMobile() ? '0' : '12px',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)'
                 },
-                // 移动端适配
-                mobileProps: {
-                    width: '100%',
-                    height: '100%',
-                    distance: {
-                        right: '0px',
-                        bottom: '0px'
-                    }
+                messageProps: {
+                    botAvatar: currentConfig.avatar
                 }
             },
         });
 
-        // 添加移动端检测和适配
+        // 移动端检测
         function isMobile() {
             return window.innerWidth <= 768;
         }
 
-        // 监听窗口大小变化，动态调整样式
+        // 监听窗口大小变化
         window.addEventListener('resize', function() {
             const chatIframe = document.querySelector('iframe');
             if (chatIframe) {
                 if (isMobile()) {
                     chatIframe.style.width = '100%';
                     chatIframe.style.height = '100%';
-                    chatIframe.style.right = '0';
-                    chatIframe.style.bottom = '0';
+                    chatIframe.style.borderRadius = '0';
                 } else {
-                    chatIframe.style.width = '380px';
-                    chatIframe.style.height = '600px';
-                    chatIframe.style.right = '20px';
-                    chatIframe.style.bottom = '20px';
+                    chatIframe.style.width = '90%';
+                    chatIframe.style.height = '90%';
+                    chatIframe.style.borderRadius = '12px';
                 }
             }
         });
