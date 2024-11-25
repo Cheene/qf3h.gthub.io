@@ -64,7 +64,14 @@
             font-weight: 500;
             position: relative;
             padding-bottom: 1.5rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            line-height: 1.5;
+        }
+        
+        .subtitle .dot {
+            color: #51a9a6;
+            margin: 0 0.8rem;
+            font-weight: 600;
         }
         
         .subtitle::after {
@@ -73,9 +80,9 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: #51a9a6;
+            background: linear-gradient(90deg, #204590, #51a9a6);
             border-radius: 2px;
         }
         
@@ -160,8 +167,12 @@
 
             .subtitle {
                 font-size: 1.4rem;
+                letter-spacing: 1px;
                 margin: 1.5rem 0 3rem;
-                padding-bottom: 1rem;
+            }
+            
+            .subtitle .dot {
+                margin: 0 0.5rem;
             }
 
             .button-container {
@@ -253,7 +264,11 @@
     
     <main class="main-content">
         <div class="decorative-line"></div>
-        <p class="subtitle">医养康护 · 全生命周期智慧服务</p>
+        <p class="subtitle">
+            医疗健康 <span class="dot">·</span> 
+            养老生活 <span class="dot">·</span> 
+            智慧服务
+        </p>
         <div class="button-container">
             <button class="btn btn-business" onclick="redirectToChat('7439142592794673179')">
                 <span class="btn-icon">💼</span>
