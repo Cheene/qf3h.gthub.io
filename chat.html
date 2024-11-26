@@ -72,18 +72,18 @@
         // 根据不同的bot_id设置不同的配置
         const config = {
             business: {
-                title: '业务咨询服务',
+                title: '七福优护',
                 themeColor: '#3498db',
-                avatar: 'https://pic.imgdb.cn/item/673f5ebad29ded1a8c3e7847.jpg'
+                avatar: 'https://pic.imgdb.cn/item/6745c262d0e0a243d4d16e30.jpg'
             },
             product: {
-                title: '产品方案咨询',
+                title: '七福智护',
                 themeColor: '#2ecc71',
-                avatar: 'https://pic.imgdb.cn/item/673fd555d29ded1a8c7d159f.jpg'
+                avatar: 'https://pic.imgdb.cn/item/6745c24dd0e0a243d4d16e29.jpg'
             }
         };
 
-        const isBusinessBot = botId === '7439142592794673179';
+        const isBusinessBot = botId === '7440852548380803135';
         const currentConfig = isBusinessBot ? config.business : config.product;
 
         // 初始化聊天SDK
@@ -99,7 +99,7 @@
                 placeholder: '请输入您的问题...',
                 width: isMobile() ? '100%' : '90%',
                 height: isMobile() ? '100%' : '90%',
-                avatar: currentConfig.avatar,
+                icon: currentConfig.avatar,
                 containerStyle: {
                     borderRadius: isMobile() ? '0' : '12px',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
