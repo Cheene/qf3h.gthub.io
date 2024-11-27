@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>七福3H云享数智平台</title>
+    <title>智能AI 七福久伴</title>
     <style>
         * {
             margin: 0;
@@ -147,7 +147,6 @@
         /* 按钮容器样式 */
         .button-container {
             display: flex;
-            gap: 2rem;
             justify-content: center;
             width: 100%;
             max-width: 700px;
@@ -158,8 +157,8 @@
 
         /* 基础按钮样式 */
         .btn {
-            flex: 1;
-            max-width: 260px;
+            width: 280px;
+            max-width: 280px;
             aspect-ratio: 2.2 / 1;
             border: none;
             border-radius: 15px;
@@ -323,37 +322,30 @@
             }
         }
 
-        /* 新增底部版权信息样式 */
+        /* 更新页脚内容 */
         .footer {
+            padding: 1rem 0;
             text-align: center;
-            padding: 0;
-            margin-top: auto;
+            background: #f8f9fa;
+        }
+
+        .footer-content p {
+            margin: 0;
             color: #666;
             font-size: 0.9rem;
-            background: #f8f9fa;
-            width: 100%;
-            height: calc(0.9rem * 3);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        .footer p {
-            letter-spacing: 1px;
-        }
-
-        .footer-divider {
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #1D489A, #F3AC3F);
-            opacity: 0.15;
-            margin-bottom: 0.5rem;
+        /* 移动端适配 */
+        @media screen and (max-width: 768px) {
+            .footer-content p {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>七福3H云享数智平台</h1>
+        <h1>智能AI 七福久伴</h1>
     </header>
     
     <main class="main-content">
@@ -367,28 +359,21 @@
             </div>
         </div>
         <div class="button-container">
-            <button class="btn btn-youhu" onclick="redirectToChat('7440852548380803135')">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
-                    <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
-                    <path d="M13 9h-2v2H9v2h2v2h2v-2h2v-2h-2z"/>
-                </svg>
-                七福优护
-            </button>
-            <button class="btn btn-zhihu" onclick="redirectToChat('7440845337843236918')">
+            <button class="btn btn-zhihu" onclick="redirectToChat('7441851145733242932')">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
                     <path d="M12 6c-1.66 0-3 1.34-3 3 0 1.66 1.34 3 3 3s3-1.34 3-3c0-1.66-1.34-3-3-3zm-7 9c0-2.76 2.24-5 5-5h4c2.76 0 5 2.24 5 5v1h-2v-1c0-1.65-1.35-3-3-3h-4c-1.65 0-3 1.35-3 3v1H5v-1z"/>
                 </svg>
-                七福智护
+                七福久伴
             </button>
         </div>
     </main>
 
-    <!-- 新增底部版权信息 -->
+    <!-- 更新页脚内容 -->
     <footer class="footer">
-        <div class="footer-divider"></div>
-        <p>威高AIGC大赛@亢龙盛世队</p>
+        <div class="footer-content">
+            <p>威高AIGC大赛@亢龙盛世队</p>
+        </div>
     </footer>
 
     <script>
